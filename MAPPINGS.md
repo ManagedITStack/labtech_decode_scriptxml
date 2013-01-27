@@ -5,7 +5,8 @@ Notes
 ==============
 
 Please add any script step mappings, parameter mappings, or other information
-you learn while using this tool here.
+you learn while using this tool here. Additional information can likely be found
+in the Labtech MySQL database.
 
 Thanks!
 
