@@ -6,13 +6,13 @@ A command-line tool to decode packed Labtech script XML files.
 ABOUT:
 ==========
 
-Use this to decrypt Labtech Packed
-XML files to a json file.
+Use this to decode Labtech Packed XML script files to an XML file. 
 
 USAGE: 
 ===========
 
-DecryptLTXML.exe --input=input.xml
+labtech_decode_scriptxml.exe
+                 --input=input.xml
                  --output=output.txt
                 [--overwrite=false|true]
 
