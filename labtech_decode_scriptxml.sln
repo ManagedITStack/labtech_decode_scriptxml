@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labtech_decode_scriptxml", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{543A8D44-D36F-416E-BEFD-A66C08C96872}"
 	ProjectSection(SolutionItems) = preProject
+		MAPPINGS.md = MAPPINGS.md
 		README.md = README.md
 	EndProjectSection
 EndProject

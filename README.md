@@ -9,7 +9,7 @@ NOTES:
 I am not affiliated with Labtech Software. Please use this software at your own risk. 
 The unpacked scripts are not readable by Labtech and should not be distributed. This
 tool is intended purely for educational purposes to enable study of the command mappings
-of Labtech's exported XML scripts. Please publish any command mappings that you may learn
+of Labtech's exported XML scripts. Please publish any script step mappings that you learn
 to Mappings.md in this repository.
 
 Enjoy.
