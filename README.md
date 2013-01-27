@@ -3,6 +3,11 @@ labtech_decode_scriptxml
 
 A command-line tool to decode packed Labtech script XML files.
 
+DOWNLOAD:
+==========
+
+Download from [SourceForge](https://sourceforge.net/projects/ltdecodescpxml/files/labtech_decode_scriptxml.exe/download).
+
 NOTES:
 ==========
 
