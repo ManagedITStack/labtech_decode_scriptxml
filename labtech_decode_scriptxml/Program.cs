@@ -148,20 +148,27 @@ namespace labtech_decode_scriptxml
 
                     /* Read XML file to find encoded string */
                     XmlNodeList scriptData = inputXMLdoc.GetElementsByTagName("ScriptData");
+                    XmlNodeList licenseData = inputXMLdoc.GetElementsByTagName("LicenseData");
 
                     /* Decode the gzipped compressed string */
                     string scriptDataString = GunzipString(scriptData[0].InnerText);
+                    string licenseDataString = GunzipString(licenseData[0].InnerText);
 
                     /* Write new string to the XML node */
                     scriptData[0].InnerText = "";
+                    licenseData[0].InnerText = "";
 
                     /* Generate a new fragment from the decoded XML */
-                    XmlDocumentFragment decodedNode = inputXMLdoc.CreateDocumentFragment();
-                    decodedNode.InnerXml = scriptDataString;
+                    XmlDocumentFragment scriptDecodedNode = inputXMLdoc.CreateDocumentFragment();
+                    XmlDocumentFragment licenseDecodedNode = inputXMLdoc.CreateDocumentFragment();
+                    scriptDecodedNode.InnerXml = scriptDataString;
+                    licenseDecodedNode.InnerXml = licenseDataString;
 
                     /* Replace the original node with the decode node */
                     XmlNode scriptDataParent = scriptData[0].ParentNode;
-                    scriptDataParent.ReplaceChild(decodedNode, scriptData[0]);
+                    XmlNode licenseDataParent = licenseData[0].ParentNode;
+                    scriptDataParent.ReplaceChild(scriptDecodedNode, scriptData[0]);
+                    licenseDataParent.ReplaceChild(licenseDecodedNode, licenseData[0]);
 
                     /* Create a new XMLdoc for output by copying the modified inputXML */
                     XmlDocument outputXMLdoc = new XmlDocument();
