@@ -19,6 +19,13 @@ to Mappings.md in this repository.
 
 Enjoy.
 
+EXAMPLE:
+===========
+
+For an example of both a packed and an unpacked Labtech script. See [CGauss' Current Date Script](https://github.com/ManagedITStack/labtech_create_current_date_variable_script)
+
+The .xml file is the packed file, the .unpacked.xml is the unpacked file.
+
 USAGE: 
 ===========
 
