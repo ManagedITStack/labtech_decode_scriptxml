@@ -17,6 +17,8 @@ tool is intended purely for educational purposes to enable study of the command 
 of Labtech's exported XML scripts. Please publish any script step mappings that you learn
 to Mappings.md in this repository.
 
+Please note that any script that is must be repacked/reencoded before you can import it back into labtech.
+
 Enjoy.
 
 EXAMPLE:
