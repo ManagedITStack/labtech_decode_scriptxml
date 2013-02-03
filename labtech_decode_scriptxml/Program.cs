@@ -170,6 +170,62 @@ namespace labtech_decode_scriptxml
                     scriptDataParent.ReplaceChild(scriptDecodedNode, scriptData[0]);
                     licenseDataParent.ReplaceChild(licenseDecodedNode, licenseData[0]);
 
+                    /* Find the File nodes */
+                    XmlNodeList filesNodes = inputXMLdoc.SelectNodes("LabTech_Expansion/PackedScript/File");
+
+                    /* Loop through the File nodes */
+                    foreach (XmlNode fileNode in filesNodes)
+                    {
+                        /* Don't touch invalid or empty File nodes */
+                        if (!string.IsNullOrEmpty(fileNode.Attributes["Bytes"].Value) && !string.IsNullOrEmpty(fileNode.Attributes["Name"].Value))
+                        {
+                            /* Convert the Base 64 string to bytes */
+                            byte[] filebytes = Convert.FromBase64String(fileNode.Attributes["Bytes"].Value);
+
+                            /* Check if we have a directory or not in our outputPath */
+                            string filesPath = "";
+                            try
+                            {
+                                filesPath=Path.GetDirectoryName(outputPath);
+                            } 
+                            catch
+                            {
+                                filesPath=Environment.CurrentDirectory;
+                            }
+
+                            string fileDir = Path.GetDirectoryName(fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath));
+                            string fileName = fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath);
+                            /* Create the directory path if it doesn't exist */
+                            if (!Directory.Exists(fileDir))
+                            {
+                                Directory.CreateDirectory(fileDir);
+                            }
+
+                            /* If we're overwriting, then overwrite the existing files in the path */
+                            if (argOverwrite && File.Exists(fileName))
+                            {
+                                File.Delete(fileName);
+                            }
+                            /* If overwrite is not set and a file exists */
+                            else if (!argOverwrite && File.Exists(fileName))
+                            {
+                                Console.WriteLine("File exists and overwrite=true is not set.");
+                                Console.WriteLine(fileName);
+                                return (int)ExitCode.OutputFileExists;
+                            }
+
+                            /* Create a filestream */
+                            FileStream fs = new FileStream(fileName,
+                                                           FileMode.CreateNew,
+                                                           FileAccess.Write,
+                                                           FileShare.None);
+
+                            /* Write the bytes to disk and close the file */
+                            fs.Write(filebytes, 0, filebytes.Length);
+                            fs.Close();
+                        }
+                    }
+
                     /* Create a new XMLdoc for output by copying the modified inputXML */
                     XmlDocument outputXMLdoc = new XmlDocument();
                     outputXMLdoc = inputXMLdoc;
