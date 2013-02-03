@@ -182,20 +182,40 @@ namespace labtech_decode_scriptxml
                             /* Convert the Base 64 string to bytes */
                             byte[] filebytes = Convert.FromBase64String(fileNode.Attributes["Bytes"].Value);
 
-                            /* Create the directory path if it doesn't exist */
-                            if (!Directory.Exists(Path.GetDirectoryName(fileNode.Attributes["Name"].Value.Replace(@"L:\", @"C:\"))))
+                            /* Check if we have a directory or not in our outputPath */
+                            string filesPath = "";
+                            try
                             {
-                                Directory.CreateDirectory(Path.GetDirectoryName(fileNode.Attributes["Name"].Value.Replace(@"L:\", @"C:\")));
+                                filesPath=Path.GetDirectoryName(outputPath);
+                            } 
+                            catch
+                            {
+                                filesPath=Environment.CurrentDirectory;
+                            }
+
+                            string fileDir = Path.GetDirectoryName(fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath));
+                            string fileName = fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath);
+                            /* Create the directory path if it doesn't exist */
+                            if (!Directory.Exists(fileDir))
+                            {
+                                Directory.CreateDirectory(fileDir);
                             }
 
                             /* If we're overwriting, then overwrite the existing files in the path */
-                            if (argOverwrite && File.Exists(fileNode.Attributes["Name"].Value.Replace(@"L:\", @"C:\")))
+                            if (argOverwrite && File.Exists(fileName))
                             {
-                                File.Delete(fileNode.Attributes["Name"].Value.Replace(@"L:\", @"C:\"));
+                                File.Delete(fileName);
+                            }
+                            /* If overwrite is not set and a file exists */
+                            else if (!argOverwrite && File.Exists(fileName))
+                            {
+                                Console.WriteLine("File exists and overwrite=true is not set.");
+                                Console.WriteLine(fileName);
+                                return (int)ExitCode.OutputFileExists;
                             }
 
                             /* Create a filestream */
-                            FileStream fs = new FileStream(fileNode.Attributes["Name"].Value.Replace(@"L:\",@"C:\"),
+                            FileStream fs = new FileStream(fileName,
                                                            FileMode.CreateNew,
                                                            FileAccess.Write,
                                                            FileShare.None);
