@@ -1,7 +1,7 @@
 labtech_decode_scriptxml
 ========================
 
-A command-line tool to decode packed Labtech script XML files.
+A command-line tool to decode packed Labtech script XML files and to extract embedded files.
 
 DOWNLOAD:
 ==========
@@ -24,7 +24,7 @@ EXAMPLE:
 
 For an example of both a packed and an unpacked Labtech script. See [CGauss' Current Date Script](https://github.com/ManagedITStack/labtech_create_current_date_variable_script)
 
-The .xml file is the packed file, the .unpacked.xml is the unpacked file.
+The .xml file is the packed file, the .unpacked.xml is the unpacked file. The files extracted during the unpacking process will be extracted to the Transfer directory. Once unpacked, the embedded file is removed from the unpacked XML file.
 
 USAGE: 
 ===========

@@ -195,6 +195,7 @@ namespace labtech_decode_scriptxml
 
                             string fileDir = Path.GetDirectoryName(fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath));
                             string fileName = fileNode.Attributes["Name"].Value.Replace(@"L:\", filesPath);
+
                             /* Create the directory path if it doesn't exist */
                             if (!Directory.Exists(fileDir))
                             {
@@ -223,6 +224,7 @@ namespace labtech_decode_scriptxml
                             /* Write the bytes to disk and close the file */
                             fs.Write(filebytes, 0, filebytes.Length);
                             fs.Close();
+                            fileNode.Attributes["Bytes"].Value = "This value has been replaced and the file extracted to the Transfer folder";
                         }
                     }
 
