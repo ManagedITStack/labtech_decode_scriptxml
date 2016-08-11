@@ -63,7 +63,7 @@ namespace labtech_decode_scriptxml
                     string[] arrValue = listArg.ToArray();
                     string argValue = String.Join("=", arrValue);
 
-                    /* Map arguments to designaed local variables */
+                    /* Map arguments to designated local variables */
                     if (argLabel == "--input")
                     {
                         inputPath = argValue;
@@ -150,25 +150,41 @@ namespace labtech_decode_scriptxml
                     XmlNodeList scriptData = inputXMLdoc.GetElementsByTagName("ScriptData");
                     XmlNodeList licenseData = inputXMLdoc.GetElementsByTagName("LicenseData");
 
-                    /* Decode the gzipped compressed string */
-                    string scriptDataString = GunzipString(scriptData[0].InnerText);
-                    string licenseDataString = GunzipString(licenseData[0].InnerText);
+                    /* Loop through each scriptData element and decode it */
+                    for (int i = 0; i < scriptData.Count; i++)
+                    {
+                        /* Decode the gzipped compressed string */
+                        string scriptDataString = GunzipString(scriptData[i].InnerText);
 
-                    /* Write new string to the XML node */
-                    scriptData[0].InnerText = "";
-                    licenseData[0].InnerText = "";
+                        /* Write new string to the XML node */
+                        scriptData[i].InnerText = "";
 
-                    /* Generate a new fragment from the decoded XML */
-                    XmlDocumentFragment scriptDecodedNode = inputXMLdoc.CreateDocumentFragment();
-                    XmlDocumentFragment licenseDecodedNode = inputXMLdoc.CreateDocumentFragment();
-                    scriptDecodedNode.InnerXml = scriptDataString;
-                    licenseDecodedNode.InnerXml = licenseDataString;
+                        /* Generate a new fragment from the decoded XML */
+                        XmlDocumentFragment scriptDecodedNode = inputXMLdoc.CreateDocumentFragment();
+                        scriptDecodedNode.InnerXml = scriptDataString;
 
-                    /* Replace the original node with the decode node */
-                    XmlNode scriptDataParent = scriptData[0].ParentNode;
-                    XmlNode licenseDataParent = licenseData[0].ParentNode;
-                    scriptDataParent.ReplaceChild(scriptDecodedNode, scriptData[0]);
-                    licenseDataParent.ReplaceChild(licenseDecodedNode, licenseData[0]);
+                        /* Replace the original node with the decode node */
+                        XmlNode scriptDataParent = scriptData[i].ParentNode;
+                        scriptDataParent.ReplaceChild(scriptDecodedNode, scriptData[i]);
+                    }
+
+                    /* Loop through each licenseData element and decode it */
+                    for (int i = 0; i < scriptData.Count; i++)
+                    {
+                        /* Decode the gzipped compressed string */
+                        string licenseDataString = GunzipString(licenseData[i].InnerText);
+
+                        /* Write new string to the XML node */
+                        licenseData[i].InnerText = "";
+
+                        /* Generate a new fragment from the decoded XML */
+                        XmlDocumentFragment licenseDecodedNode = inputXMLdoc.CreateDocumentFragment();
+                        licenseDecodedNode.InnerXml = licenseDataString;
+
+                        /* Replace the original node with the decode node */
+                        XmlNode licenseDataParent = licenseData[i].ParentNode;
+                        licenseDataParent.ReplaceChild(licenseDecodedNode, licenseData[i]);
+                    }
 
                     /* Find the File nodes */
                     XmlNodeList filesNodes = inputXMLdoc.SelectNodes("LabTech_Expansion/PackedScript/File");

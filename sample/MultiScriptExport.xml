@@ -1,0 +1,69 @@
+﻿<LabTech_Expansion
+	Version="105.244"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>738</ScriptId>
+				<FolderId>3</FolderId>
+				<ScriptName>Wake On Lan*</ScriptName>
+				<ScriptNotes>This script allows you to schedule a Wake on Lan.</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>1</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/Ih4/L6b5ssmfZm129PjN9So/2n18l38+frVenlTrZZvXRzuP73p/PT59typqvJMffTefLfNmll2P0qf5NF9M8jrdeTBK93Z2d9O9R/d2Hu0cpC+/eHzXe+fx62ldrNqfzOumqJYAHn6g33++LmZH2d7e7qfT/Xx798GD+9u7u/nOdnbwcHf73vTB3sGD+zvnD893zfv8wuO7/pB+4+T/AdeRiILiAAAA</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN2TTQrCMBCF94J36AVKm2iaFkpB/EMQFAT3YxshUFNJp+DxbWKqsQsP4CrzvZcMMw+Sn0ot77gChGI6CYL8xa2FHtcP1GDcjRR11QbRYBxBw02g0J62rZsL1J7wanbuL8lGFYRmScJ4yuI8+na+rm87WRVAKUnKuQgJ5ywkRMQhpBkJZyWnKWfxNbuSoYt9YIeP/OlduxOK+3udRYl2kjxyldM3nbK8q4znkb8tGW1PRzwb8XzEzAum0ViYGMzptGWjUKpOGP1dO+/Q7uVN2idD6ZydqoRCsMv0ro9+JJ8UfsRCf8TC0r/OZWD3EZ7STZ1oFwMAAA==</ScriptData>
+				<ScriptVersion>1296657850</ScriptVersion>
+				<ScriptGuid>a2216c4e-1775-11e0-a891-3c728750f9f1</ScriptGuid>
+				<ScriptFlags>1</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>3</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Actions</Name>
+					<GUID>62da1b4f-7ca5-465c-ae8e-49f96763c80e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>6511</ScriptId>
+				<FolderId>3</FolderId>
+				<ScriptName>Uninstall Trend Micro OfficeScan</ScriptName>
+				<ScriptNotes>Auto Created Script</ScriptNotes>
+				<Permission>1,2,3,4,5,6,9,11,500,</Permission>
+				<EditPermission>1,2,3,4,5,6,9,11,500,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>0</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoaFL6R1kCouJFQVT0vCZbCEga0hbs29sWhXpYlpnh22HhaDW5lnbYoYLb4ElJiOcNl95tm951FJSAeKFg//Y2TAypBxlHrcEhYhsf7IslIhpH5iyrkrRKS3Y+QbwA4KqD9d2dQmsbN13+N775obdGPeuilEYjF4XUXErKOZYouBCZyHLEsab+8TMA8fKf9eoD5Tai4N8AAAA=</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAO2ZUW/aMBDH3yftO1iaeJoCcSBpi1gkFqBDhVI1sL0gTSYxkzXjIMe07NvPCQkNqLiVGoul2lN858SKf/nf+Q46fsDJWvSQQO7HDwB0dnacGtLsbwVHyeyAYBrGoJFP3CGOVlhgXvBd02iBaMGxW+y7vIlEzIWdxqHj4K7rDQndxfLiEoYBMswLGBgQYsdAl8g0TNM2bQchEzrLfJX0gfSdG8WXzpbzBV7vd9ENRPYC2SjzDzYstYeh61idRsEs7hK6tclySQLsB4jVOo3MWbzFOgLTPLJbR7ZdYBRx4ZpyD8k183kRE4RtcOLfj7O5STwiK5I+kg+zmSELMRMo3aCcLZpFTE9kFKgsBSrYvFKwmjEaBb/BMuLgHq+iB0T/E7NUwFJKhP0C0/HXsY/5A+YguUjBaSEHq0QOWo4CXRyAEFOZhQrstDCzymZmnS0+eyRGC4pzicVaeDWrpDFldO5wpeHJMQvBmAQ80guvVSV40DYV9MSKklhg9jynZOFs9BZedqWC8wVeax5t/2jF5bwfXExwEcuiTCuvi0rxglDB69vNaDz3J4Ppj+59f54mtDSfze88IyBUprnbqRfx9dzbcDmZF+rzMYmDertLafQIZoywWCB6oqxLyovXQHfbad0jz6FoKR4Rz2udlvJbXFYpNSrPlRRmcqzsedbrdS3HyVWlmCmQWa0TkktkXbODXNhy+CRtaRyJW3oO5S0dBYF/3n+QtkGFQV6r55o3Gd/Npv37Ya/2vJYTcNnooB4vvZU5X3F5IqhLbmAq1cG8rvfLgelKArD0DuZ8Xd8qJniLA9DY7mryunSATR61P9cojh8jHn4RC8w/OU1TD9DSWxydUWu3TvM82uibwZTevrS0Kk1VX778u5/bHiBCcVhKpQlL72TOltiKzfL+QAX+zPP6vq8nIKvV1yjpaUpZpXcyWiNTXWgchF3JnN5Pl/F8GA66w1G/p4dd6d3Ge4tCq/Ry/61R2CxDXbeTKRje+tPuSJe0/rk2ScXtLPn9DMLK7ewP5L843RM1Tx4AAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>bf781dca-071c-11e6-a8a0-005056aa016f</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters></Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>3</FolderID>
+					<ParentID>0</ParentID>
+					<Name>Actions</Name>
+					<GUID>62da1b4f-7ca5-465c-ae8e-49f96763c80e</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
